@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>HELLO WORLD</title>
+
+		<link rel='stylesheet'
+		href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/
+		bootstrap.min.css'/>
+		
+		<script src="javascripts/getcomments.js"></script>
+		<script src="javascripts/postcomment.js"></script>
+		<script src="javascripts/deletecomment.js"></script>
+	</head>
+	<body>
+		<input type="text" placeholder="@handle" id="handle">
+		<input type="text" placeholder="@comment" id="comment">
+		<button onclick="postComment()">Post</button>
+		<button onclick="getComments()">Get Comments</button>
+		<div id="comments"></div>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="/__/firebase/8.2.7/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+		 https://firebase.google.com/docs/web/setup#available-libraries -->
+
+		<!-- Initialize Firebase -->
+		<script src="/__/firebase/init.js"></script>
+	</body>
+</html>
