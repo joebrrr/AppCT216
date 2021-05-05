@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "signUpStyle.css">
+    <title>Register an account</title>
+</head>
+<body>
+
+<div class="container-fluid stylish-form">
+
+    <div class="row mar20" >
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="inner-section">
+                <form onsubmit="return false">
+                    <div class="mar20 inside-form">
+                        <h2 class="font_white text-center">SIGN UP</h2>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope "></i></span>
+                            <input type="email" id = "emailHolder" class="form-control" name="text" placeholder="Email...">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock "></i></span>
+                            <input type="password" class="form-control" id = "pwordHolder" name="text" placeholder="Password...">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock "></i></span>
+                            <input type="text" class="form-control" id = "firstName" name="text" placeholder="First Name...">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock "></i></span>
+                            <input type="text" class="form-control" id = "surname" name="text" placeholder="Surname...">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock "></i></span>
+                            <input type="number" class="form-control" id = "age" name="text" placeholder="Age...">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock "></i></span>
+                            <input type="text" class="form-control" id = "bio" name="text" placeholder="Bio...">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="updateProPic"></label>
+                            <input type="file" class="form-control" id="updateProPic" placeholder="Choose Image" onchange="chooseFile(event)">
+                        </div>
+
+                        <div class="footer text-center">
+                            <button onClick="signUp();updateInfo()" class="btn btn-primary">Create Account</button>
+                            <br>
+                            <a style = "color:white"href="#" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+                                Sign in
+                                <i class="fa fa-long-arrow-right m-l-5"></i>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="/__/firebase/8.3.0/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="/__/firebase/8.3.0/firebase-auth.js"></script>
+<script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
+<script src="/__/firebase/8.3.0/firebase-storage.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js?useEmulator=true"></script>
+
+<script src="js/register.js"></script>
+<script src="js/updateInfo.js"></script>
+
+
+</body>
+</html>
+
