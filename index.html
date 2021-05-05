@@ -1,63 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel = "stylesheet" href = "signUpStyle.css">
-    <title>Login</title>
+    <meta charset="utf-8"/>
+    <title>Chat Page</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="https://use/fontawesome.com/release/v6.6.3/css/all.css"/>
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' />
+    <link href="css/bootstrap-4.3.1.min.css" rel="stylesheet" />
 </head>
 <body>
+    <span class="top"></span>
 
-<div class="container-fluid stylish-form">
-
-    <div class="row mar20" >
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="inner-section">
-                <form onsubmit="return false">
-                    <div class="mar20 inside-form">
-                        <h2 class="font_white text-center">SIGN IN</h2>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope "></i></span>
-                            <input type="email" id = "emailHolder" class="form-control" name="text" placeholder="Email...">
+    <div class="container-fluid bg-white chatbox shadow-lg">
+        <div class="row">
+            <div class="col-md-4 pr-0 d-none d-md-block" id="side-1">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-1 col-sm-1 col-md-1 d-md-none">
+                            <i class="fas fa-arrow-left d-md-none" style="font-size:20px;cursor:pointer"></i>
                         </div>
-
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock "></i></span>
-                            <input type="password" class="form-control" id = "pwordHolder" name="text" placeholder="Password...">
+                        <div class="col-9 col-sm-9 col-md-9">
+                            <img id="imgProfile" src="images/pp.png" class="profile-pic"/>
                         </div>
-
-                        <div class="footer text-center">
-                            <button onClick="login()" class="btn btn-primary">Create Account</button>
-                            <br>
-                            <a style="color : white" href="/signUp.html" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
-                                Not a member? Sign up!
-                                <i class="fa fa-long-arrow-right m-l-5"></i>
-                            </a>
+                        <div class="col-2 col-sm-2 col-md-2">
+                            <div class="dropleft">
+                                <span class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fas fa-ellipsis-v icon" style="font-size:20px;cursor:pointer" onclick="hideChatList()"></i>
+                                </span>
+                            </div>
                         </div>
-
-
                     </div>
-                </form>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="background-color:#f8f8f8">
+                            <input type="text" placeholder="search or new chat" class="form-control form-rounded">
+                    </li>
+                    <li class="list-group-item list-group-item-action" onclick="StartChat(1)">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="images/pp.png" class="friend-pic"/>
+                            </div>
+                            <div class="col-md-10" style="cursor:pointer">
+                                <div class="name">Buddy</div>
+                                <div class="under-name">Whats the story lads</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="images/pp.png" class="friend-pic"/>
+                            </div>
+                            <div class="col-md-10" style="cursor:pointer">
+                                <div class="name">Buddy</div>
+                                <div class="under-name">hows things</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="images/pp.png" class="friend-pic"/>
+                            </div>
+                            <div class="col-md-10" style="cursor:pointer">
+                                <div class="name">Buddy</div>
+                                <div class="under-name">well</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
+                <div class="col-md-8 pl-0" id="side-2">
+                    <div id="chatPanel" class="card" style="display:none">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2 col-lg-1">
+                                    <img src="images/pp.png" class="profile-pic"/>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-8">
+                                    <div class="name">Buddy</div>
+                                    <div class="under-name">Last seen yesterday</div>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-3 icon">
+                                    <i class="fas fa-search"></i>
+                                    <i class="fas fa-paperclip ml-4"></i>
+                                    <i class="fas fa-ellipsis-v ml-4"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="messages">
+                            <div class="row">
+                                <div class="col-2 col-sm-1 col-md-1">
+                                    <img src="images/pp.png" class="chat-pic"/>
+                                </div>
+                                <div class="col-6 col-sm-7 col-md-7">
+                                    <p class="receive">
+                                        This is text from anywhere
+                                        <span class="time float-right">1:28PM</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end">
+                                <div class="col-6 col-sm-7 col-md-7">
+                                    <p class="sent float-right">
+                                        This is text from anywhere
+                                        <span class="time float-right">1:28PM</span>
+                                    </p>
+                                </div>
+                                <div class="col-2 col-sm-1 col-md-1 float right">
+                                    <img src="images/pp.png" class="chat-pic"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-2 col-md-1">
+                                    <i class="fas fa-grin fa-2x"></i>
+                                </div>
+                                <div class="col-8 col-md-10">
+                                    <input id="txtMessage" onclick="OnKeyDown()" type="text" placeholder="Type here" class="form-control form-rounded">
+                                </div>
+                                <div class="col-2 col-md-1">
+                                    <i class="fas fa-microphone fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divStart" class="text-center">
+                        <i class="fas fa-comments mt-5" style="font-size:250px;"></i>
+                        <h2 class="mt-3">Select a friend and start chatting!</h2>
+                        <a href="a" onclick="showChatList()" class="d-md-none">New chat</a>
+                </div>
         </div>
     </div>
-</div>
-<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <div class="col-md-8">
 
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="/__/firebase/8.3.0/firebase-app.js"></script>
+    </div>
+    </div>
+    <script src="https://kit.fontawesome.com/de2056ff28.js" crossorigin="anonymous"></script>
+    <script src="Scripts/jquery.3.4.1.min.js"></script>
+    <script src="Scripts/popper-1.14.7.min.js"></script>
+    <script src="Scripts/bootstrap-4.3.1.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.3.2/firebase-app.js"></script>
 
-<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-<script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.3.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.3.2/firebase-analytics.js"></script>
 
-<!-- Add Firebase products that you want to use -->
-<script src="/__/firebase/8.3.0/firebase-auth.js"></script>
-<script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-
-<script src="js/login.js"></script>
-
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <scipt src="index.js"></scipt>
+    <script src="Scripts/chat.js"></script>
 </body>
 </html>
-
