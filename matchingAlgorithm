@@ -1,0 +1,58 @@
+const myObject =[
+{
+  name:'Leo',
+  college : 'NUIG',
+  course : 'CS'
+},
+{
+  name:'Ewan',
+  college : 'Maynooth',
+  course : 'CS'
+},
+{
+  name:'Padraic',
+  college : 'NUIG',
+  course : 'CS'
+},
+{
+  name:'Joe',
+  college : 'NUIG',
+  course : 'CS'
+},
+{
+  name:'Padraic',
+  college : 'NUIG',
+  course : 'CS'
+},{
+  name:'Leo',
+  college : 'NUIG',
+  course : 'CS'
+},
+{
+  name:'Ewan',
+  college : 'NUIG',
+  course : 'CS'
+},
+{
+  name:'Carl',
+  college : 'NUIG',
+  course : 'CS'
+},
+{
+  name:'Padraic',
+  college : 'NUIG',
+  course : 'CS'
+}
+]
+var input = {name:"Leo",college:"NUIG",course:"CS"}
+const array=[];
+for(var i=0; i<myObject.length;i++)
+{
+  if(myObject[i].name===input.name && myObject[i].college===input.college)
+  {
+    console.log("hi");
+   const ne = array.push(myObject[i].name && myObject[i].college);
+  }
+}
+
+console.log(array);
